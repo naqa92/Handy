@@ -18,6 +18,13 @@ import { RecordingRetentionPeriodSelector } from "../RecordingRetentionPeriod";
 import { ExperimentalToggle } from "../ExperimentalToggle";
 import { useSettings } from "../../../hooks/useSettings";
 import { KeyboardImplementationSelector } from "../debug/KeyboardImplementationSelector";
+import { VoiceActivityDetection } from "../VoiceActivityDetection";
+import { LongFormChunking } from "../LongFormChunking";
+import { AccelerationSelector } from "../AccelerationSelector";
+import { LazyStreamClose } from "../LazyStreamClose";
+import { FillerWordRemoval } from "../FillerWordRemoval";
+import { ChineseScriptSetting } from "../ChineseScript";
+import { VadBackendSelector } from "../VadBackendSelector";
 
 export const AdvancedSettings: React.FC = () => {
   const { t } = useTranslation();
@@ -43,6 +50,10 @@ export const AdvancedSettings: React.FC = () => {
       </SettingsGroup>
 
       <SettingsGroup title={t("settings.advanced.groups.transcription")}>
+        <VoiceActivityDetection descriptionMode="tooltip" grouped={true} />
+        <LongFormChunking descriptionMode="tooltip" grouped={true} />
+        <FillerWordRemoval descriptionMode="tooltip" grouped={true} />
+        <ChineseScriptSetting descriptionMode="tooltip" grouped={true} />
         <CustomWords descriptionMode="tooltip" grouped />
         <AppendTrailingSpace descriptionMode="tooltip" grouped={true} />
       </SettingsGroup>
@@ -62,6 +73,9 @@ export const AdvancedSettings: React.FC = () => {
             descriptionMode="tooltip"
             grouped={true}
           />
+          <AccelerationSelector descriptionMode="tooltip" grouped={true} />
+          <LazyStreamClose descriptionMode="tooltip" grouped={true} />
+          <VadBackendSelector descriptionMode="tooltip" grouped={true} />
         </SettingsGroup>
       )}
     </div>
